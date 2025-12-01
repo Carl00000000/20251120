@@ -5,6 +5,8 @@ class Variable
         self.creator=None #创造者
 
     def backward(self):
+        if self.grad is None:
+            self.grad=np.ones_like(self.data)
         funcs=[self.creator]
         while funcs:
             f=funcs.pop()
