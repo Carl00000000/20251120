@@ -4,7 +4,9 @@ class Variable
     def __init__(self,data):
         self.data=data
         self.grad=None  #导数
-        self.creator=None #创造者
+        self.creator=None #父类
+        self.operation=None #运算
+        
 
     def backward(self):
         if self.grad is None:
@@ -19,4 +21,5 @@ class Variable
                 x.grad=f.backward(y.grad)
 
                 if x.creator is not None:
+
                     funcs.append(x.creator)
