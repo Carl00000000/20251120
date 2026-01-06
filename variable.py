@@ -5,7 +5,6 @@ class Variable
         self.data=data
         self.grad=None  #导数
         self.creator=None #父类
-        self.operation=None #运算
         
 
     def backward(self):
